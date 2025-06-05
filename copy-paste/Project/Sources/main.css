@@ -1,0 +1,12 @@
+button.edit {
+	focusable: false;
+}
+button.copy {
+	action: "copy";
+}
+button.paste {
+	action: "paste";
+}
+button.cut {
+	action: "cut";
+}
