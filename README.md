@@ -28,7 +28,7 @@ button.cut {
 > [!TIP]
 > you can define them directly in the property list if you prefer.
 
-The Menu
+### The Menu
 
 the 4th button creates a popup menu that calls [`INVOKE ACTION`](https://doc.4d.com/4Dv20/4D/20.6/INVOKE-ACTION.301-7488119.en.html):
 
