@@ -27,3 +27,50 @@ button.cut {
 
 > [!TIP]
 > you can define them directly in the property list if you prefer.
+
+The Menu
+
+the 4th button creates a popup menu that calls [`INVOKE ACTION`](https://doc.4d.com/4Dv20/4D/20.6/INVOKE-ACTION.301-7488119.en.html):
+
+```4d
+If (FORM Event.code=On Clicked)
+	
+	$menu:=Create menu
+	
+	APPEND MENU ITEM($menu; "cut")
+	SET MENU ITEM PARAMETER($menu; -1; "cut")
+	GET HIGHLIGHT(*; OBJECT Get name(Object with focus); $start; $end)
+	If (($end-$start)=0)
+		DISABLE MENU ITEM($menu; -1)
+	End if 
+	
+	APPEND MENU ITEM($menu; "copy")
+	SET MENU ITEM PARAMETER($menu; -1; "copy")
+	GET HIGHLIGHT(*; OBJECT Get name(Object with focus); $start; $end)
+	If (($end-$start)=0)
+		DISABLE MENU ITEM($menu; -1)
+	End if 
+	
+	APPEND MENU ITEM($menu; "paste")
+	SET MENU ITEM PARAMETER($menu; -1; "paste")
+	If (Pasteboard data size("public.utf8-plain-text")<0)
+		DISABLE MENU ITEM($menu; -1)
+	End if 
+	
+	$command:=Dynamic pop up menu($menu)
+	RELEASE MENU($menu)
+	
+	Case of 
+		: ($command="cut")
+			INVOKE ACTION(ak cut; ak current form)
+		: ($command="copy")
+			INVOKE ACTION(ak copy; ak current form)
+		: ($command="paste")
+			INVOKE ACTION(ak paste; ak current form)
+	End case 
+	
+End if 
+```
+
+> [!TIP]
+> you can also define the menu action directly with [`SET MENU ITEM PROPERTY`](https://doc.4d.com/4Dv20/4D/20.6/SET-MENU-ITEM-PROPERTY.301-7487932.en.html)
