@@ -4,4 +4,4 @@
 # 4d-tips-copy-paste
 Example of using the pasteboard with standard actions
 
-![copy](https://github.com/user-attachments/assets/2107e131-86cd-4eaa-beb1-b9b3e4bcecf8)
+<img src="https://github.com/user-attachments/assets/2107e131-86cd-4eaa-beb1-b9b3e4bcecf8" width=400 height=auto />
