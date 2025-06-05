@@ -5,3 +5,25 @@
 Example of using the pasteboard with standard actions
 
 <img src="https://github.com/user-attachments/assets/2107e131-86cd-4eaa-beb1-b9b3e4bcecf8" width=400 height=auto />
+
+## The Buttons
+
+it's important the copy/paste/cut buttons do not take away the focus. the buttons have their properties defined in css:
+
+```css
+button.edit {
+	focusable: false;
+}
+button.copy {
+	action: "copy";
+}
+button.paste {
+	action: "paste";
+}
+button.cut {
+	action: "cut";
+}
+```
+
+> [!TIP]
+> you can define them directly in the property list if you prefer.
